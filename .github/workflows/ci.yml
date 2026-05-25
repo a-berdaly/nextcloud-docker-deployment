@@ -1,0 +1,16 @@
+name: CI Docker Check
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test-docker-compose:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Скачиваем код из репозитория
+        uses: actions/checkout@v4
+
+      - name: Проверяем синтаксис docker-compose
+        run: docker compose config
